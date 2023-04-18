@@ -12,24 +12,24 @@
 
 <body>
 
+    <nav>
+        <!-- <img src="./images/logo.png" class="logo"> -->
+        <ul id="sidemenu">
+            <li><a href="#header">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+        </ul>
+        <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+    </nav>
     <div id="header">
         <div class="container">
-            <nav>
-                <!-- <img src="./images/logo.png" class="logo"> -->
-                <ul id="sidemenu">
-                    <li><a href="#header">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
-                </ul>
-                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
-            </nav>
 
             <div class="header-text">
-                <p>Frontend Developer</p>
-                <h1>Hi, I'm <span>Adesh</span><br>Yemzy From Nigeria.</h1>
+                <p>A Frontend Developer</p>
+                <h1>Hi, I'm <span>Adesh</span><br>Yemiz From Nigeria.</h1>
             </div>
         </div>
     </div>
@@ -47,13 +47,13 @@
                         and creative designs to make eye-catching, accessible, and user-friendly websites and
                         applications.
                         Technology leads, society follows. The move towards increasing inclusivity and diversity in the
-                        industry through represntation is of importance to me.
+                        industry through representation is of importance to me.
                     </p>
 
                     <div class="tab-titles">
-                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
-                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
-                        <p class="tab-links" onclick="opentab('education')">Education</p>
+                        <p class="tab-links active-link" onclick="opentab('skills')" id="skills">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')" id="experience">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')" id="education">Education</p>
                     </div>
 
                     <div class="tab-contents active-tab" id="skills">
@@ -74,7 +74,7 @@
                     <div class="tab-contents" id="education">
                         <ul>
                             <li><span>2023</span><br>Web Design at Daystar Acquisition Program.</li>
-                            <li><span>2022</span><br>Sololearn Online School.</li>
+                            <li><span>2022</span><br>Sololearn Online Training School.</li>
                             <li><span>2020</span><br>Digital Marketing at Google Digital Skills.</li>
                         </ul>
                     </div>
@@ -150,8 +150,8 @@
                     <a href="#"><i class="fa-solid fa-up-right-from-square"></i></a>
                 </div>
             </div>
-            <a href="#" class="btn">See More</a>
         </div>
+        <a href="#" class="btn">See More</a>
     </div>
 
     <!------------------------- Contact---------------------------- -->
@@ -166,7 +166,7 @@
                     <div class="social-icons">
                         <a href="https://www.facebook.com/Adesola712
                 "><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://twitter.com/AdesolaOgunyemi?t=1_wgAOMYUT_f1dzfdjzg5w&s=03
+                        <a href="https://twitter.com/AdeshWebDev?t=PI2s2ZPrwfiYv4NrN52MnQ&s=03
                 "><i class="fa-brands fa-twitter-square"></i></a>
                         <a href="https://www.linkedin.com/in/adesola-ogunyemi-351879154
                 "><i class="fa-brands fa-linkedin"></i></a>
@@ -197,13 +197,16 @@
 
         const tablinks = document.getElementsByClassName("tab-links");
         const tabcontents = document.getElementsByClassName("tab-contents");
-
         function opentab(tabname) {
             for (tablink of tablinks) {
                 tablink.classList.remove("active-link");
             }
             for (tabcontent of tabcontents) {
                 tabcontent.classList.remove("active-tab");
+                if (event.currentTarget.id.toLowerCase() == tabcontent.id.toLowerCase()) {
+                    tabcontent.classList.add("active-tab");
+                }
+
             }
             event.currentTarget.classList.add("active-link");
             document.getElementById("tabname").classList.add("active-tab");
@@ -224,7 +227,7 @@
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbz29I40z9o8DkpO9oxVHPZb-ZZOWQx0Tb9CrYh7GkRor1xeg1Di0ATLeNwgj5hLUywmPA/exec'
         const form = document.forms['submit-to-google-sheet']
-        const msg = doccument.getElementById("msg")
+        const msg = document.getElementById("msg")
 
         form.addEventListener('submit', e => {
             e.preventDefault()
